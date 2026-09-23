@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function openWhatsApp(data) {
     const phone = CONFIG.whatsappNumber.replace(/\D/g, "");
-    if (!phone || phone === "5511999999999") {
+    if (!phone || phone === "5511966205035") {
       alert("Configure o seu número real do WhatsApp no arquivo script.js.");
       return false;
     }
