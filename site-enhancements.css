@@ -1,0 +1,98 @@
+/* Detalhes adicionais para uma apresentação mais completa */
+.hero-content {
+  max-width: 980px;
+}
+
+.hero-content::after {
+  content: "PERSONALIZAÇÃO\A ESTRATÉGIA\A CONSTÂNCIA";
+  white-space: pre;
+  position: absolute;
+  right: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(183, 243, 74, 0.14);
+  font-size: clamp(2.6rem, 6vw, 5.6rem);
+  line-height: 0.92;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  text-align: right;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.step {
+  min-height: 240px;
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step-number::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--green);
+  box-shadow: 0 0 12px var(--green);
+}
+
+.plan h3 {
+  letter-spacing: 0.04em;
+}
+
+.plan.featured::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(125deg, transparent 25%, rgba(183,243,74,.18), transparent 65%);
+  opacity: .55;
+}
+
+.form-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.form-card::before {
+  content: "TECNO\A SAUDE";
+  white-space: pre;
+  position: absolute;
+  right: -18px;
+  bottom: -22px;
+  color: rgba(183,243,74,.035);
+  font-weight: 900;
+  font-size: 5rem;
+  line-height: .8;
+  letter-spacing: -.1em;
+  pointer-events: none;
+}
+
+.form-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .hero-content::after {
+    right: -40px;
+    opacity: .65;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-content::after {
+    right: -18px;
+    top: auto;
+    bottom: -18px;
+    transform: none;
+    font-size: 2.5rem;
+  }
+
+  .step {
+    min-height: auto;
+  }
+}

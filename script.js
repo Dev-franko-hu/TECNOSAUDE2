@@ -2,24 +2,26 @@ const totalSteps = 5;
 let currentStep = 1;
 let selectedPlan = "";
 
-// Carrega a camada visual premium sem alterar a estrutura existente.
 const premiumStyles = document.createElement("link");
 premiumStyles.rel = "stylesheet";
 premiumStyles.href = "premium.css";
 document.head.appendChild(premiumStyles);
+
+const enhancementStyles = document.createElement("link");
+enhancementStyles.rel = "stylesheet";
+enhancementStyles.href = "site-enhancements.css";
+document.head.appendChild(enhancementStyles);
 
 const planButtons = document.querySelectorAll(".choose-plan");
 const selectedPlanBox = document.getElementById("selectedPlan");
 const selectedPlanName = document.getElementById("selectedPlanName");
 const continueButton = document.getElementById("continueButton");
 const planInput = document.getElementById("planInput");
-
 const form = document.getElementById("studentForm");
 const formSteps = document.querySelectorAll(".form-step");
 const nextButton = document.getElementById("nextButton");
 const previousButton = document.getElementById("previousButton");
 const submitButton = document.getElementById("submitButton");
-
 const stepLabel = document.getElementById("stepLabel");
 const progressPercent = document.getElementById("progressPercent");
 const progressFill = document.getElementById("progressFill");
@@ -32,8 +34,10 @@ function selectPlan(plan) {
   selectedPlanBox.classList.add("visible");
 
   document.querySelectorAll(".plan").forEach((card) => {
-    card.classList.toggle("selected", card.querySelector(`[data-plan="${CSS.escape(plan)}"]`) !== null);
+    card.classList.toggle("selected", card.querySelector("[data-plan]")?.dataset.plan === plan);
   });
+
+  localStorage.setItem("tecnosaude-plano", plan);
 }
 
 planButtons.forEach((button) => {
@@ -81,6 +85,7 @@ nextButton.addEventListener("click", () => {
   }
 
   if (!validateCurrentStep()) return;
+
   if (currentStep < totalSteps) {
     currentStep += 1;
     updateForm();
@@ -99,11 +104,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   if (!validateCurrentStep()) return;
 
-  const formData = new FormData(form);
-  const data = Object.fromEntries(formData.entries());
-  console.log("Dados do aluno:", data);
-
-  // Mantém um rascunho local para evitar perda acidental dos dados no navegador.
+  const data = Object.fromEntries(new FormData(form).entries());
   localStorage.setItem("tecnosaude-formulario", JSON.stringify(data));
 
   form.style.display = "none";
@@ -111,7 +112,6 @@ form.addEventListener("submit", (event) => {
   successMessage.classList.add("visible");
 });
 
-// Anima os blocos conforme entram na tela.
 const revealItems = document.querySelectorAll("section:not(.hero), .step, .plan, .form-card");
 revealItems.forEach((item) => item.classList.add("reveal"));
 
@@ -124,5 +124,8 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 }, { threshold: 0.12 });
 
 revealItems.forEach((item) => revealObserver.observe(item));
+
+const savedPlan = localStorage.getItem("tecnosaude-plano");
+if (savedPlan) selectPlan(savedPlan);
 
 updateForm();
