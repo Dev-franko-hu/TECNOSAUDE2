@@ -79,7 +79,7 @@ function init() {
     const data = Object.fromEntries(new FormData(form).entries());
     localStorage.setItem("tecnosaude-form", JSON.stringify(data));
     const number = WHATSAPP_NUMBER.replace(/\D/g, "");
-    if (number === "5511999999999" || !number) { alert("Configure seu número do WhatsApp no arquivo script.js."); return; }
+    if (number === "5511966205035" || !number) { alert("Configure seu número do WhatsApp no arquivo script.js."); return; }
     window.open(`https://wa.me/${number}?text=${encodeURIComponent(whatsappMessage(data))}`, "_blank");
     form.hidden = true;
     $(".progress").hidden = true;
