@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tecnosaude | Seu objetivo. Nossa estratégia.</title>
+    <meta
+      name="description"
+      content="Consultoria fitness personalizada para transformar seus objetivos em estratégia."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container nav">
+        <a href="#inicio" class="logo">TECNO<span>SAUDE</span></a>
+
+        <nav class="nav-links" aria-label="Menu principal">
+          <a href="#inicio">Início</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#planos">Planos</a>
+          <a href="#formulario">Começar agora</a>
+        </nav>
+
+        <a href="#planos" class="btn btn-primary">COMEÇAR AGORA</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="container hero-content">
+          <div class="eyebrow">Consultoria fitness personalizada</div>
+
+          <h1>
+            SEU OBJETIVO.<br />
+            <span>NOSSA ESTRATÉGIA.</span>
+          </h1>
+
+          <p>
+            Um planejamento pensado para você, sua rotina e seu objetivo. Chega de
+            treinar sem direção ou seguir uma dieta que não se encaixa na sua realidade.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#planos" class="btn btn-primary">QUERO COMEÇAR</a>
+            <a href="#como-funciona" class="btn btn-outline">COMO FUNCIONA</a>
+          </div>
+
+          <div class="quote">
+            “A evolução começa quando você decide levar seu objetivo a sério.”
+          </div>
+        </div>
+      </section>
+
+      <section id="como-funciona">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow">O processo</div>
+            <h2>Simples para você. Estratégico para sua evolução.</h2>
+            <p>
+              Tudo começa entendendo quem você é, como funciona sua rotina e onde você
+              quer chegar.
+            </p>
+          </div>
+
+          <div class="steps">
+            <article class="step">
+              <div class="step-number">01 — PRIMEIRO PASSO</div>
+              <h3>Você escolhe seu plano</h3>
+              <p>Escolha entre Treino, Dieta ou Treino + Dieta.</p>
+            </article>
+
+            <article class="step">
+              <div class="step-number">02 — SUAS INFORMAÇÕES</div>
+              <h3>Você conta tudo sobre você</h3>
+              <p>Informe sua rotina, objetivo, preferências e dificuldades.</p>
+            </article>
+
+            <article class="step">
+              <div class="step-number">03 — ANÁLISE</div>
+              <h3>Eu analiso suas informações</h3>
+              <p>Suas respostas serão analisadas de acordo com sua realidade.</p>
+            </article>
+
+            <article class="step">
+              <div class="step-number">04 — PLANEJAMENTO</div>
+              <h3>Seu planejamento é preparado</h3>
+              <p>Você receberá um planejamento personalizado para seu objetivo.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="motivation">
+        <div class="container">
+          Você não precisa fazer tudo sozinho. Precisa apenas começar.
+        </div>
+      </section>
+
+      <section id="planos">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow">Escolha sua estratégia</div>
+            <h2>Seu objetivo merece mais do que um treino aleatório.</h2>
+            <p>
+              Escolha o plano que melhor representa o momento atual da sua jornada.
+            </p>
+          </div>
+
+          <div class="plans">
+            <article class="plan">
+              <h3>TREINO</h3>
+              <p>Para quem quer treinar com estratégia e organização.</p>
+
+              <ul>
+                <li>Treino personalizado</li>
+                <li>Exercícios selecionados</li>
+                <li>Séries e repetições</li>
+                <li>Organização da rotina de treino</li>
+                <li>Orientações para execução</li>
+              </ul>
+
+              <button class="btn btn-outline choose-plan" data-plan="Treino">
+                ESCOLHER TREINO
+              </button>
+            </article>
+
+            <article class="plan">
+              <h3>DIETA</h3>
+              <p>
+                Para quem quer organizar sua alimentação de acordo com sua rotina e
+                objetivo.
+              </p>
+
+              <ul>
+                <li>Planejamento alimentar personalizado</li>
+                <li>Organização das refeições</li>
+                <li>Quantidades</li>
+                <li>Adaptação aos alimentos preferidos</li>
+                <li>Estratégia de acordo com a rotina</li>
+              </ul>
+
+              <button class="btn btn-outline choose-plan" data-plan="Dieta">
+                ESCOLHER DIETA
+              </button>
+            </article>
+
+            <article class="plan featured">
+              <div class="plan-badge">COMPLETO</div>
+
+              <h3>TREINO + DIETA</h3>
+              <p>
+                Para quem quer unir treinamento e alimentação em uma estratégia
+                completa.
+              </p>
+
+              <ul>
+                <li>Planejamento de treino</li>
+                <li>Planejamento alimentar</li>
+                <li>Organização da rotina</li>
+                <li>Estratégias personalizadas</li>
+              </ul>
+
+              <button class="btn btn-primary choose-plan" data-plan="Treino + Dieta">
+                ESCOLHER TREINO + DIETA
+              </button>
+            </article>
+          </div>
+
+          <div class="selected-plan" id="selectedPlan">
+            <div>
+              Plano selecionado:
+              <strong id="selectedPlanName"></strong>
+            </div>
+
+            <button class="btn btn-primary" id="continueButton">CONTINUAR</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="motivation">
+        <div class="container">
+          Não existe planejamento perfeito para todo mundo. Existe planejamento adequado
+          para você.
+        </div>
+      </section>
+
+      <section class="form-section" id="formulario">
+        <div class="container form-wrapper">
+          <div class="section-heading">
+            <div class="eyebrow">Comece sua jornada</div>
+            <h2>Conte um pouco sobre você.</h2>
+            <p>
+              Quanto mais informações você fornecer, melhor será a compreensão sobre sua
+              rotina e seus objetivos.
+            </p>
+          </div>
+
+          <div class="form-card">
+            <div class="progress-area">
+              <div class="progress-info">
+                <span id="stepLabel">Etapa 1 de 5</span>
+                <span id="progressPercent">20%</span>
+              </div>
+
+              <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+            </div>
+
+            <form id="studentForm">
+              <input type="hidden" id="planInput" name="plano" />
+
+              <div class="form-step active" data-step="1">
+                <h3>Dados pessoais</h3>
+                <p>Precisamos de algumas informações básicas para começar.</p>
+
+                <div class="form-grid">
+                  <div class="field full">
+                    <label for="name">Nome completo *</label>
+                    <input id="name" name="nome" type="text" required />
+                  </div>
+
+                  <div class="field">
+                    <label for="email">E-mail *</label>
+                    <input id="email" name="email" type="email" required />
+                  </div>
+
+                  <div class="field">
+                    <label for="phone">WhatsApp *</label>
+                    <input id="phone" name="whatsapp" type="tel" required />
+                  </div>
+
+                  <div class="field">
+                    <label for="birth">Data de nascimento *</label>
+                    <input id="birth" name="dataNascimento" type="date" required />
+                  </div>
+
+                  <div class="field">
+                    <label for="gender">Sexo</label>
+                    <select id="gender" name="sexo">
+                      <option value="">Selecione</option>
+                      <option>Masculino</option>
+                      <option>Feminino</option>
+                      <option>Prefiro não informar</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-step" data-step="2">
+                <h3>Seu objetivo</h3>
+                <p>Defina o que você deseja alcançar com o planejamento.</p>
+
+                <div class="form-grid">
+                  <div class="field full">
+                    <label for="goal">Qual é o seu principal objetivo? *</label>
+                    <select id="goal" name="objetivo" required>
+                      <option value="">Selecione</option>
+                      <option>Emagrecimento</option>
+                      <option>Ganho de massa muscular</option>
+                      <option>Definição muscular</option>
+                      <option>Melhora do condicionamento</option>
+                      <option>Manutenção</option>
+                      <option>Outro</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="weight">Peso atual, em kg *</label>
+                    <input id="weight" name="peso" type="number" step="0.1" required />
+                  </div>
+
+                  <div class="field">
+                    <label for="height">Altura, em cm *</label>
+                    <input id="height" name="altura" type="number" required />
+                  </div>
+
+                  <div class="field full">
+                    <label for="deadline">Você possui algum prazo ou data específica?</label>
+                    <input id="deadline" name="prazo" type="text" />
+                  </div>
+
+                  <div class="field full">
+                    <label for="motivation">Por que você decidiu começar agora?</label>
+                    <textarea id="motivation" name="motivacao"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-step" data-step="3">
+                <h3>Rotina e treino</h3>
+                <p>Essas informações ajudam a adaptar o planejamento ao seu dia a dia.</p>
+
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="trainingLevel">Nível de experiência *</label>
+                    <select id="trainingLevel" name="nivel" required>
+                      <option value="">Selecione</option>
+                      <option>Iniciante</option>
+                      <option>Intermediário</option>
+                      <option>Avançado</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="frequency">Quantos dias por semana? *</label>
+                    <select id="frequency" name="frequencia" required>
+                      <option value="">Selecione</option>
+                      <option>1 dia</option>
+                      <option>2 dias</option>
+                      <option>3 dias</option>
+                      <option>4 dias</option>
+                      <option>5 dias</option>
+                      <option>6 dias</option>
+                      <option>7 dias</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="location">Onde você treina?</label>
+                    <select id="location" name="localTreino">
+                      <option value="">Selecione</option>
+                      <option>Academia</option>
+                      <option>Em casa</option>
+                      <option>Ao ar livre</option>
+                      <option>Outro</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="time">Quanto tempo por treino?</label>
+                    <select id="time" name="tempoTreino">
+                      <option value="">Selecione</option>
+                      <option>Até 30 minutos</option>
+                      <option>30 a 45 minutos</option>
+                      <option>45 a 60 minutos</option>
+                      <option>Mais de 60 minutos</option>
+                    </select>
+                  </div>
+
+                  <div class="field full">
+                    <label for="limitations">Possui alguma limitação, dor ou dificuldade?</label>
+                    <textarea id="limitations" name="limitacoes"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-step" data-step="4">
+                <h3>Alimentação e preferências</h3>
+                <p>Responda conforme sua realidade. Não existe resposta certa ou errada.</p>
+
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="meals">Quantas refeições você faz normalmente?</label>
+                    <select id="meals" name="refeicoes">
+                      <option value="">Selecione</option>
+                      <option>1 a 2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5 ou mais</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="water">Consumo aproximado de água</label>
+                    <select id="water" name="agua">
+                      <option value="">Selecione</option>
+                      <option>Menos de 1 litro</option>
+                      <option>1 a 2 litros</option>
+                      <option>2 a 3 litros</option>
+                      <option>Mais de 3 litros</option>
+                    </select>
+                  </div>
+
+                  <div class="field full">
+                    <label for="foods">Alimentos que você gosta ou gostaria de manter</label>
+                    <textarea id="foods" name="alimentosPreferidos"></textarea>
+                  </div>
+
+                  <div class="field full">
+                    <label for="restrictions">Restrições, alergias ou alimentos que não consome</label>
+                    <textarea id="restrictions" name="restricoes"></textarea>
+                  </div>
+
+                  <div class="field full">
+                    <label for="routine">Como é sua rotina de trabalho e alimentação?</label>
+                    <textarea id="routine" name="rotinaAlimentar"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-step" data-step="5">
+                <h3>Informações adicionais</h3>
+                <p>Estamos quase lá. Finalize com informações importantes.</p>
+
+                <div class="form-grid">
+                  <div class="field full">
+                    <label for="health">Possui alguma condição de saúde relevante?</label>
+                    <textarea id="health" name="condicoesSaude"></textarea>
+                  </div>
+
+                  <div class="field full">
+                    <label for="medications">Utiliza algum medicamento ou suplemento?</label>
+                    <textarea id="medications" name="medicamentosSuplementos"></textarea>
+                  </div>
+
+                  <div class="field full">
+                    <label for="observations">Existe algo mais que eu deveria saber?</label>
+                    <textarea id="observations" name="observacoes"></textarea>
+                  </div>
+
+                  <div class="field full">
+                    <label class="check-option">
+                      <input type="checkbox" id="consent" required />
+                      Confirmo que as informações fornecidas são verdadeiras e autorizo seu uso para elaboração do meu planejamento. *
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn-outline" id="previousButton">
+                  VOLTAR
+                </button>
+
+                <button type="button" class="btn btn-primary" id="nextButton">
+                  PRÓXIMA ETAPA
+                </button>
+
+                <button type="submit" class="btn btn-primary" id="submitButton" hidden>
+                  ENVIAR INFORMAÇÕES
+                </button>
+              </div>
+            </form>
+
+            <div class="success" id="successMessage">
+              <div class="success-icon">✓</div>
+              <h3>Informações enviadas!</h3>
+              <p>
+                Obrigado por confiar na Tecnosaude. Suas informações foram registradas e
+                serão analisadas para a elaboração do seu planejamento personalizado.
+              </p>
+            </div>
+          </div>
+
+          <p class="contact-note">
+            As informações fornecidas serão utilizadas exclusivamente para compreender sua
+            situação e preparar seu planejamento.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <div class="logo">TECNO<span>SAUDE</span></div>
+        <div>© 2025 Tecnosaude. Todos os direitos reservados.</div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
