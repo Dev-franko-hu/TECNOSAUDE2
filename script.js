@@ -2,6 +2,12 @@ const totalSteps = 5;
 let currentStep = 1;
 let selectedPlan = "";
 
+// Carrega a camada visual premium sem alterar a estrutura existente.
+const premiumStyles = document.createElement("link");
+premiumStyles.rel = "stylesheet";
+premiumStyles.href = "premium.css";
+document.head.appendChild(premiumStyles);
+
 const planButtons = document.querySelectorAll(".choose-plan");
 const selectedPlanBox = document.getElementById("selectedPlan");
 const selectedPlanName = document.getElementById("selectedPlanName");
@@ -24,53 +30,38 @@ function selectPlan(plan) {
   planInput.value = plan;
   selectedPlanName.textContent = plan;
   selectedPlanBox.classList.add("visible");
+
+  document.querySelectorAll(".plan").forEach((card) => {
+    card.classList.toggle("selected", card.querySelector(`[data-plan="${CSS.escape(plan)}"]`) !== null);
+  });
 }
 
 planButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    selectPlan(button.dataset.plan);
-
-    document.querySelectorAll(".plan").forEach((plan) => {
-      plan.style.outline = "none";
-    });
-
-    button.closest(".plan").style.outline = "2px solid var(--green)";
-  });
+  button.addEventListener("click", () => selectPlan(button.dataset.plan));
 });
 
 continueButton.addEventListener("click", () => {
   if (!selectedPlan) return;
-
-  document.getElementById("formulario").scrollIntoView({
-    behavior: "smooth",
-  });
-
-  if (currentStep === 1) {
-    window.scrollBy({ top: 120, behavior: "smooth" });
-  }
+  document.getElementById("formulario").scrollIntoView({ behavior: "smooth" });
 });
 
 function updateForm() {
   formSteps.forEach((step) => {
-    const shouldBeActive = Number(step.dataset.step) === currentStep;
-    step.classList.toggle("active", shouldBeActive);
+    step.classList.toggle("active", Number(step.dataset.step) === currentStep);
   });
 
   const percentage = (currentStep / totalSteps) * 100;
-
   stepLabel.textContent = `Etapa ${currentStep} de ${totalSteps}`;
   progressPercent.textContent = `${Math.round(percentage)}%`;
   progressFill.style.width = `${percentage}%`;
-
   previousButton.style.visibility = currentStep === 1 ? "hidden" : "visible";
-
   nextButton.hidden = currentStep === totalSteps;
   submitButton.hidden = currentStep !== totalSteps;
 }
 
 function validateCurrentStep() {
   const activeStep = document.querySelector(`.form-step[data-step="${currentStep}"]`);
-  const requiredFields = activeStep.querySelectorAll("input[required], select[required]");
+  const requiredFields = activeStep.querySelectorAll("input[required], select[required], textarea[required]");
 
   for (const field of requiredFields) {
     if (!field.checkValidity()) {
@@ -90,10 +81,10 @@ nextButton.addEventListener("click", () => {
   }
 
   if (!validateCurrentStep()) return;
-
   if (currentStep < totalSteps) {
     currentStep += 1;
     updateForm();
+    document.querySelector(".form-card").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 });
 
@@ -106,17 +97,32 @@ previousButton.addEventListener("click", () => {
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
   if (!validateCurrentStep()) return;
 
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
-
   console.log("Dados do aluno:", data);
+
+  // Mantém um rascunho local para evitar perda acidental dos dados no navegador.
+  localStorage.setItem("tecnosaude-formulario", JSON.stringify(data));
 
   form.style.display = "none";
   document.querySelector(".progress-area").style.display = "none";
   successMessage.classList.add("visible");
 });
+
+// Anima os blocos conforme entram na tela.
+const revealItems = document.querySelectorAll("section:not(.hero), .step, .plan, .form-card");
+revealItems.forEach((item) => item.classList.add("reveal"));
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("is-visible");
+    observer.unobserve(entry.target);
+  });
+}, { threshold: 0.12 });
+
+revealItems.forEach((item) => revealObserver.observe(item));
 
 updateForm();
