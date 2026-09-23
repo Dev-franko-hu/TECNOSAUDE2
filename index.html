@@ -46,7 +46,7 @@
           <article class="plan reveal delay-1" data-card="Dieta"><div class="plan-top"><span>02</span><span>PLANO</span></div><h3>DIETA</h3><p>Para organizar sua alimentação de acordo com sua rotina e objetivo.</p><ul><li>Planejamento alimentar</li><li>Organização das refeições</li><li>Quantidades</li><li>Adaptação aos seus alimentos</li><li>Estratégia para sua rotina</li></ul><button class="button choose-plan" data-plan="Dieta">ESCOLHER DIETA</button></article>
           <article class="plan plan-featured reveal delay-2" data-card="Treino + Dieta"><span class="badge">COMPLETO</span><div class="plan-top"><span>03</span><span>PLANO</span></div><h3>TREINO + DIETA</h3><p>Para unir treinamento e alimentação em uma estratégia completa.</p><ul><li>Planejamento de treino</li><li>Planejamento alimentar</li><li>Organização da rotina</li><li>Estratégias personalizadas</li></ul><button class="button choose-plan" data-plan="Treino + Dieta">ESCOLHER PLANO</button></article>
         </div>
-        <div class="selected" id="selectedPlan" aria-live="polite"><span>Plano selecionado: <strong id="selectedPlanName"></strong></span><button class="button" id="continueButton">CONTINUAR →</button></div>
+        <div class="selected" id="selectedPlan" aria-live="polite" hidden><span>Plano selecionado: <strong id="selectedPlanName"></strong></span><button class="button" id="continueButton">CONTINUAR →</button></div>
       </div>
     </section>
 
@@ -63,7 +63,7 @@
             <div class="form-step" data-step="5"><h3>Últimos detalhes</h3><p>Estamos quase lá. Revise e envie sua ficha.</p><div class="fields"><label class="full">Condições de saúde relevantes<textarea name="condicoesSaude"></textarea></label><label class="full">Medicamentos ou suplementos<textarea name="medicamentosSuplementos"></textarea></label><label class="full">Observações<textarea name="observacoes"></textarea></label><label class="consent full"><input type="checkbox" name="consentimento" required /> Confirmo que as informações são verdadeiras e autorizo seu uso para elaboração do planejamento. *</label></div></div>
             <div class="form-actions"><button type="button" class="button button-ghost" id="previousButton">← VOLTAR</button><button type="button" class="button" id="nextButton">PRÓXIMA ETAPA →</button><button type="submit" class="button" id="submitButton" hidden>ENVIAR FICHA →</button></div>
           </form>
-          <div class="success" id="successMessage"><div class="success-mark">✓</div><h3>Ficha recebida!</h3><p>Obrigado por confiar na Tecnosaude. Em breve entraremos em contato.</p></div>
+          <div class="success" id="successMessage" hidden><div class="success-mark">✓</div><h3>Ficha recebida!</h3><p>Obrigado por confiar na Tecnosaude. Em breve entraremos em contato.</p></div>
         </div>
       </div>
     </section>
