@@ -2,6 +2,8 @@ const totalSteps = 5;
 let currentStep = 1;
 let selectedPlan = "";
 
+const WHATSAPP_NUMBER = "5511999999999"; // Troque pelo seu número do WhatsApp com DDI + DDD, sem sinais e sem espaços.
+
 const loadStylesheet = (href) => {
   const link = document.createElement("link");
   link.rel = "stylesheet";
@@ -73,6 +75,53 @@ function validateCurrentStep() {
   return true;
 }
 
+function buildWhatsAppMessage(data) {
+  const fields = [
+    ["Plano", data.plano || "Não informado"],
+    ["Nome", data.nome || "Não informado"],
+    ["E-mail", data.email || "Não informado"],
+    ["WhatsApp", data.whatsapp || "Não informado"],
+    ["Nascimento", data.dataNascimento || "Não informado"],
+    ["Objetivo", data.objetivo || "Não informado"],
+    ["Peso", data.peso || "Não informado"],
+    ["Altura", data.altura || "Não informado"],
+    ["Nível", data.nivel || "Não informado"],
+    ["Frequência", data.frequencia || "Não informado"],
+    ["Prazo", data.prazo || "Não informado"],
+    ["Motivação", data.motivacao || "Não informado"],
+    ["Limitações", data.limitacoes || "Não informado"],
+    ["Refeições", data.refeicoes || "Não informado"],
+    ["Água", data.agua || "Não informado"],
+    ["Alimentos", data.alimentosPreferidos || "Não informado"],
+    ["Restrições", data.restricoes || "Não informado"],
+    ["Rotina", data.rotinaAlimentar || "Não informado"],
+    ["Saúde", data.condicoesSaude || "Não informado"],
+    ["Medicamentos", data.medicamentosSuplementos || "Não informado"],
+    ["Observações", data.observacoes || "Não informado"]
+  ];
+
+  return [
+    "Olá! Chegou uma nova inscrição da Tecnosaude.",
+    "",
+    ...fields.map(([label, value]) => `${label}: ${value}`),
+    "",
+    "Mensagem enviada automaticamente pelo formulário do site."
+  ].join("\n");
+}
+
+function sendDataToWhatsApp(data) {
+  const phone = WHATSAPP_NUMBER.replace(/\D/g, "");
+
+  if (!phone || phone === "5511999999999") {
+    console.warn("Defina o número do WhatsApp no arquivo script.js antes de publicar.");
+    return;
+  }
+
+  const message = encodeURIComponent(buildWhatsAppMessage(data));
+  const url = `https://wa.me/${phone}?text=${message}`;
+  window.open(url, "_blank");
+}
+
 nextButton.addEventListener("click", () => {
   if (!selectedPlan) {
     alert("Escolha um plano antes de continuar.");
@@ -97,8 +146,13 @@ previousButton.addEventListener("click", () => {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   if (!validateCurrentStep()) return;
+
   const data = Object.fromEntries(new FormData(form).entries());
   localStorage.setItem("tecnosaude-formulario", JSON.stringify(data));
+
+  // Envia as informações para o WhatsApp do responsável
+  sendDataToWhatsApp(data);
+
   form.style.display = "none";
   document.querySelector(".progress-area").style.display = "none";
   successMessage.classList.add("visible");
