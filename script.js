@@ -188,7 +188,7 @@ function setupIdentity() {
       <p>Informe seu nome e telefone para identificarmos sua ficha.</p>
       <form id="identityForm">
         <label>Nome completo<input id="identityName" required /></label>
-        <label>Telefone/WhatsApp<input id="identityPhone" type="tel" placeholder="(11) 99999-9999" required /></label>
+        <label>Telefone/WhatsApp<input id="identityPhone" type="tel" placeholder="(11) 966205035" required /></label>
         <label class="identity-check"><input id="identityConsent" type="checkbox" required /> Autorizo o uso para identificação e contato.</label>
         <small id="identityError"></small>
         <button class="button" type="submit">CONTINUAR</button>
