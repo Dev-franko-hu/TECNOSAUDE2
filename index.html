@@ -23,11 +23,11 @@
       justify-content: space-between;
       gap: 18px;
       min-height: 100%;
-      padding: 28px 22px 22px;
+      padding: 30px 22px 22px;
       background: rgba(17, 21, 22, 0.94);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 18px;
+      box-shadow: 0 15px 32px rgba(0,0,0,0.14);
       transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
       overflow: hidden;
     }
@@ -35,7 +35,7 @@
     #planos .plan:hover {
       transform: translateY(-4px);
       border-color: rgba(183, 243, 74, 0.34);
-      box-shadow: 0 20px 42px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.18);
     }
 
     #planos .plan-top {
@@ -43,7 +43,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.68rem;
+      font-size: 0.66rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #9da8a3;
@@ -52,7 +52,7 @@
 
     #planos .plan h3 {
       margin: 0;
-      font-size: clamp(2rem, 1.8vw, 2.4rem);
+      font-size: clamp(2rem, 2vw, 2.5rem);
       letter-spacing: -0.06em;
       line-height: 1.1;
       color: #f5f7f2;
@@ -62,15 +62,15 @@
       display: inline-flex;
       align-items: baseline;
       gap: 8px;
-      line-height: 1;
-      color: #f5f7f2;
       font-size: clamp(2.2rem, 2vw, 2.9rem);
       font-weight: 800;
       letter-spacing: -0.07em;
+      line-height: 1;
+      color: #f5f7f2;
     }
 
     #planos .plan-price small {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #9da8a3;
@@ -98,9 +98,9 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      color: #dfe7e3;
-      font-size: 0.96rem;
+      font-size: 0.95rem;
       line-height: 1.6;
+      color: #dfe7e3;
     }
 
     #planos .plan-list li::before {
@@ -111,10 +111,10 @@
     }
 
     #planos .plan .button,
-    #planos .plan button {
+    #planos .plan a.button {
       width: 100%;
       justify-content: center;
-      margin-top: 8px;
+      margin-top: 10px;
       padding: 14px 18px;
       font-size: 0.82rem;
       letter-spacing: 0.08em;
@@ -122,9 +122,9 @@
     }
 
     #planos .plan-featured {
-      background: linear-gradient(180deg, rgba(183, 243, 74, 0.08), rgba(17, 21, 22, 0.96));
-      border-color: rgba(183, 243, 74, 0.35);
-      box-shadow: 0 20px 42px rgba(183, 243, 74, 0.08);
+      background: linear-gradient(180deg, rgba(183,243,74,0.08), rgba(17,21,22,0.96));
+      border-color: rgba(183,243,74,0.35);
+      box-shadow: 0 20px 42px rgba(183,243,74,0.08);
     }
 
     #planos .plan-featured .badge {
@@ -136,8 +136,8 @@
       justify-content: center;
       padding: 7px 12px;
       border-radius: 999px;
-      background: rgba(183, 243, 74, 0.14);
-      border: 1px solid rgba(183, 243, 74, 0.32);
+      background: rgba(183,243,74,0.14);
+      border: 1px solid rgba(183,243,74,0.32);
       color: #dfffb2;
       font-size: 0.68rem;
       font-weight: 800;
@@ -146,16 +146,16 @@
     }
 
     #planos .plan-featured .button,
-    #planos .plan-featured button {
+    #planos .plan-featured a.button {
       background: #b7f34a;
       color: #101515;
-      border-color: rgba(183, 243, 74, 0.5);
+      border-color: rgba(183,243,74,0.5);
     }
 
     #planos .pricing-note {
       margin-top: 18px;
-      padding-top: 16px;
       border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 18px;
       text-align: center;
       color: #b8c2bd;
       font-size: 0.88rem;
@@ -213,26 +213,26 @@
             <div class="plan-top"><span>01</span><span>Treino</span></div>
             <h3>Treino</h3>
             <div class="plan-price"><span>R$ 95</span><small>/mês</small></div>
-            <p class="plan-description">Planejamento de treinamento individualizado para evolução com direcionamento e consistência.</p>
+            <p class="plan-description">Planejamento de treinamento individualizado para evolução com direção e consistência.</p>
             <ul class="plan-list">
               <li>Exercícios personalizados conforme o objetivo.</li>
               <li>Organização de séries, repetições e progressão.</li>
               <li>Atualizações periódicas para manter o avanço.</li>
             </ul>
-            <button type="button" class="button choose-plan" data-plan="Treino">Quero esse plano</button>
+            <a class="button choose-plan" href="https://wa.me/5511966205035?text=Ol%C3%A1%2C%20quero%20assinar%20o%20plano%20Treino." target="_blank" rel="noreferrer" data-plan="Treino">Quero esse plano</a>
           </article>
 
           <article class="plan reveal delay-1" data-card="Dieta">
             <div class="plan-top"><span>02</span><span>Dieta</span></div>
             <h3>Dieta</h3>
             <div class="plan-price"><span>R$ 95</span><small>/mês</small></div>
-            <p class="plan-description">Planejamento alimentar individualizado para adaptar sua rotina à sua rotina e objetivos.</p>
+            <p class="plan-description">Planejamento alimentar individualizado para adaptar sua rotina ao seu objetivo.</p>
             <ul class="plan-list">
               <li>Alimentação adaptada ao seu cotidiano.</li>
               <li>Opções de substituição de alimentos.</li>
               <li>Ajustes conforme sua evolução e rotina.</li>
             </ul>
-            <button type="button" class="button choose-plan" data-plan="Dieta">Quero esse plano</button>
+            <a class="button choose-plan" href="https://wa.me/5511966205035?text=Ol%C3%A1%2C%20quero%20assinar%20o%20plano%20Dieta." target="_blank" rel="noreferrer" data-plan="Dieta">Quero esse plano</a>
           </article>
 
           <article class="plan plan-featured reveal delay-2" data-card="Dieta + Treino">
@@ -246,7 +246,7 @@
               <li>Acompanhamento contínuo e revisões semanais.</li>
               <li>Atualizações conforme sua evolução.</li>
             </ul>
-            <button type="button" class="button choose-plan" data-plan="Dieta + Treino">Quero esse plano</button>
+            <a class="button choose-plan" href="https://wa.me/5511966205035?text=Ol%C3%A1%2C%20quero%20assinar%20o%20plano%20Dieta%20%2B%20Treino." target="_blank" rel="noreferrer" data-plan="Dieta + Treino">Quero esse plano</a>
           </article>
         </div>
 
